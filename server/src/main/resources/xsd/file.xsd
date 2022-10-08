@@ -1,0 +1,32 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://localhost:1010/Service/ServiceFileName?wsdl"
+	targetNamespace="http://localhost:1010/Service/ServiceFileName?wsdl"
+	elementFormDefault="qualified">
+
+	<xs:element name="getFileDetailsRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="fileId" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="getFileDetailsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="file" type="tns:file" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:complexType name="file">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" />
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="data" type="xs:byte" />
+			<xs:element name="extension" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
